@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Design Tokens ---------- */
+:root {
+  /* Colors */
+  --primary: #10b981;
+  --secondary: #848993;
+  --accent: #22d3ee;
+
+  --background: #ffffff;
+  --foreground: #171717;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+
+  --dark: #000026;
+  --dark-hover: #30304f;
+  --dark-contrast: #ffffff;
+
+  --stroke: #d7d7d7;
+}
+
+/* ---------- Base Styles ---------- */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
