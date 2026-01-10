@@ -14,17 +14,22 @@ const tailwindConfig = {
       colors: {
         primary: "var(--primary)",
         secondary: "var(--secondary)",
+        light: "var(--light)",
         background: "var(--background)",
         foreground: "var(--foreground)",
         text: "var(--text)",
         muted: "var(--muted)",
+        contrast: "var(--contrast)",
         accent: "var(--accent)",
         dark: {
           DEFAULT: "var(--dark)",
           hover: "var(--dark-hover)",
           contrast: "var(--dark-contrast)",
         },
-        stroke: "var(--stroke)",
+        stroke: {
+          DEFAULT: "var(--stroke)",
+          hover: "var(--stroke-hover)",
+        },
       },
       fontFamily: {
         sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],

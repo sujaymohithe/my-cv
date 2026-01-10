@@ -2,14 +2,44 @@ import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 import tailwindPlugin from "eslint-plugin-tailwindcss";
+import { jsdoc } from "eslint-plugin-jsdoc";
 
 export default defineConfig([
-  // Next.js recommended rules
+  // Next.js base
   ...nextVitals,
   ...nextTs,
 
-  // Tailwind plugin configuration
+  // JSDoc plugin config
+  jsdoc({
+    config: "flat/recommended-typescript",
+    rules: {
+      "jsdoc/require-jsdoc": [
+        "warn",
+        {
+          require: {
+            FunctionDeclaration: true,
+            MethodDefinition: true,
+            ClassDeclaration: true,
+            ArrowFunctionExpression: false,
+            FunctionExpression: false,
+          },
+        },
+      ],
+      "jsdoc/require-param-description": "off",
+      "jsdoc/require-returns-description": "off",
+      "jsdoc/require-param-type": "off",
+      "jsdoc/require-returns-type": "off",
+    },
+    settings: {
+      jsdoc: {
+        mode: "typescript",
+      },
+    },
+  }),
+
+  // Tailwind (separate to avoid conflicts)
   {
+    files: ["**/*.{ts,tsx,js,jsx}"],
     plugins: {
       tailwindcss: tailwindPlugin,
     },
@@ -29,11 +59,6 @@ export default defineConfig([
     },
   },
 
-  // Ignore Next.js build output folders
-  globalIgnores([
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts",
-  ]),
+  // Global ignores last (takes precedence)
+  globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts"]),
 ]);

@@ -86,13 +86,15 @@ Responsive Breakpoints:
 - xs: Small phones
 - xl: Wide desktop screens
 
-Used in addition to Tailwind’s default breakpoints.
+Used in addition to Tailwind’s default breakpoints. Meaning below ones are extended/overriden.
 
 ```js
 //tailwind.config.js
-screens: {
-  xs: "480px",
-  xl: "1200px",
+extend: {
+  screens: {
+    xs: "480px",
+    xl: "1200px",
+  }
 }
 ```
 
