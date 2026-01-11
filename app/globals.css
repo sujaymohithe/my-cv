@@ -6,19 +6,19 @@
 :root {
   /* Colors */
   --primary: #10b981;
-  --secondary: #848993;
+  --secondary: #718096;
+  --light: #ffffff;
   --accent: #22d3ee;
-
   --background: #ffffff;
   --foreground: #171717;
   --text: #e5e7eb;
   --muted: #94a3b8;
-
+  --contrast: #000000;
   --dark: #000026;
   --dark-hover: #30304f;
   --dark-contrast: #ffffff;
-
   --stroke: #d7d7d7;
+  --stroke-hover: #a0a0a0;
 }
 
 /* ---------- Base Styles ---------- */
