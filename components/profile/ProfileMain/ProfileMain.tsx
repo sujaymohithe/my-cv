@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { Button } from "../ui";
+import { Button } from "@/components/ui";
+import Link from "next/link";
 
 export interface ProfileProps {
   name: string;
@@ -32,8 +33,14 @@ export function ProfileMain({ name, designation, description }: ProfileProps) {
           </p>
 
           <div className="flex gap-4 pt-4">
-            <Button>Download CV</Button>
-            <Button variant="ghost">View Projects</Button>
+            <Button asChild>
+              <a href="/cv.pdf" download>
+                Download CV
+              </a>
+            </Button>
+            <Button asChild variant="ghost">
+              <Link href="/projects">View Projects</Link>
+            </Button>
           </div>
         </div>
 

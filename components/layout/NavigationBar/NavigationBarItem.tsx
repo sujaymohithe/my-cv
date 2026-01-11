@@ -1,5 +1,8 @@
+"use client";
 import Link from "next/link";
 import { NavigationBarLink } from "./NavigationBar";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib";
 
 /**
  * Props for the Navigation Bar Item component
@@ -23,9 +26,13 @@ export function NavigationBarItem({
   className,
   onClick,
 }: NavigationBarItemProps) {
+  const pathName = usePathname();
+  const isCurrentPath = pathName.includes(link.href);
   return (
     <Link href={link.href} onClick={onClick}>
-      <li className={className}>{link.label}</li>
+      <li className={cn(className, isCurrentPath && "text-primary")}>
+        {link.label}
+      </li>
     </Link>
   );
 }

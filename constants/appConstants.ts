@@ -4,7 +4,7 @@ export const BASE_NAVIGATION_LINKS: NavigationBarLink[] = [
   {
     id: "Profile",
     label: "Profile",
-    href: "/profile",
+    href: "/",
   },
   {
     id: "Experience",
