@@ -21,7 +21,7 @@ export function OverviewRow({
 }: OverviewRowProps) {
   return (
     <section className={cn("space-y-3", className)}>
-      <h3 className="text-sm font-semibold uppercase tracking-wide text-gray-500">
+      <h3 className="text-sm font-semibold uppercase tracking-wide text-subtle-gray">
         {title}
       </h3>
       {children}

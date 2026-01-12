@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer className="fixed bottom-0 left-0 right-0 z-50 h-10 border-t border-stroke bg-light px-6">
       <div className="mx-auto flex h-full max-w-5xl flex-col items-center px-4 sm:flex-row sm:justify-between md:gap-4">
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-subtle-gray">
           © {new Date().getFullYear()} Sujay Mohithe
         </p>
 
@@ -16,20 +16,20 @@ export function Footer() {
           <Link
             href="https://github.com/sujaymohithe"
             target="_blank"
-            className="text-gray-600 hover:text-contrast"
+            className="text-secondary hover:text-contrast"
           >
             GitHub
           </Link>
           <Link
             href="https://linkedin.com/in/sujay-mohithe"
             target="_blank"
-            className="text-gray-600 hover:text-contrast"
+            className="text-secondary hover:text-contrast"
           >
             LinkedIn
           </Link>
           <Link
             href="mailto:sujaymohithe@gmail.com"
-            className="text-gray-600 hover:text-contrast"
+            className="text-secondary hover:text-contrast"
           >
             Email
           </Link>

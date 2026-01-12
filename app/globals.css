@@ -8,6 +8,10 @@
   --primary: #10b981;
   --secondary: #718096;
   --light: #ffffff;
+  --gray: #d1d5db; /* gray-300 */
+  --light-gray: #e5e7eb; /* gray-200 */
+  --dark-gray: #374151; /* gray-700 */
+  --subtle-gray: #6b7280; /* gray-500 */
   --accent: #22d3ee;
   --background: #ffffff;
   --foreground: #171717;

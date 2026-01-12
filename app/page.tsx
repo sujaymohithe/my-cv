@@ -22,7 +22,7 @@ const profileData: ProfileProps = {
  */
 export default function Home() {
   return (
-    <div className="container py-4">
+    <div className="mx-auto max-w-5xl px-4">
       <ProfileMain
         name={profileData.name}
         designation={profileData.designation}

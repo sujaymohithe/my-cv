@@ -38,7 +38,7 @@ export default function RootLayout({
       >
         <main className="flex min-h-screen flex-col pb-10">
           <NavigationBar />
-          <div className="flex-1 px-6">{children}</div>
+          <div className="container flex-1 pt-16">{children}</div>
           <Footer />
         </main>
       </body>

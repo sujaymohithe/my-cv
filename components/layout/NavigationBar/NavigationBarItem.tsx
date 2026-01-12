@@ -27,7 +27,7 @@ export function NavigationBarItem({
   onClick,
 }: NavigationBarItemProps) {
   const pathName = usePathname();
-  const isCurrentPath = pathName.includes(link.href);
+  const isCurrentPath = pathName === link.href;
   return (
     <Link href={link.href} onClick={onClick}>
       <li className={cn(className, isCurrentPath && "text-primary")}>

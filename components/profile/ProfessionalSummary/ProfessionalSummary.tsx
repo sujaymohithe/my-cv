@@ -1,3 +1,5 @@
+import { List } from "@/components/ui";
+
 export interface ProfessionalSummaryProps {
   title?: string;
   highlights: string[];
@@ -15,25 +17,12 @@ export function ProfessionalSummary({
   highlights,
 }: ProfessionalSummaryProps) {
   return (
-    <section className="mx-auto max-w-5xl px-4 py-12">
-      <h3 className="mb-6 text-sm font-semibold uppercase tracking-wider text-gray-500">
+    <section className="py-12">
+      <h3 className="mb-6 text-sm font-semibold uppercase tracking-wider text-subtle-gray">
         {title}
       </h3>
 
-      <ul className="space-y-4">
-        {highlights.map((item, index) => (
-          <li
-            key={index}
-            className="flex gap-3 text-base leading-relaxed text-gray-700"
-          >
-            <span
-              className="mt-[0.6em] h-2 w-2 shrink-0 rounded-full bg-gray-400"
-              aria-hidden
-            />
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
+      <List items={highlights} ulClassName="space-y-4"/>
     </section>
   );
 }
