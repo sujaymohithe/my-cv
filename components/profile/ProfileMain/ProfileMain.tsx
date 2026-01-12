@@ -19,16 +19,16 @@ export interface ProfileProps {
  */
 export function ProfileMain({ name, designation, description }: ProfileProps) {
   return (
-    <section className="mx-auto max-w-5xl px-4 py-16">
+    <section className="py-16">
       <div className="flex flex-col-reverse items-start gap-8 md:flex-row md:items-center md:justify-between">
         <div className="flex-1 space-y-4">
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
             Hi, I&apos;m {name} 👋
           </h1>
 
-          <h2 className="text-xl font-medium">{designation}</h2>
+          <h2 className="text-2xl font-semibold">{designation}</h2>
 
-          <p className="max-w-xl text-base leading-relaxed text-secondary">
+          <p className="max-w-xl text-base leading-relaxed text-dark-gray">
             {description}
           </p>
 

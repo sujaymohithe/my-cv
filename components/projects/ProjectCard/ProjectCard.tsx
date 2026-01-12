@@ -1,3 +1,5 @@
+import { Chip, List } from "@/components/ui";
+
 interface ProjectCardProps {
   title: string;
   description: string;
@@ -24,27 +26,15 @@ export function ProjectCard({
     <article className="rounded-lg border p-6 transition hover:shadow-sm">
       <h3 className="text-lg font-semibold">{title}</h3>
 
-      <p className="mt-3 text-base leading-relaxed text-gray-600">
+      <p className="mt-3 text-base leading-relaxed text-secondary">
         {description}
       </p>
 
-      <ul className="mt-4 space-y-2 text-sm text-gray-700">
-        {highlights.map((item, index) => (
-          <li key={index} className="flex gap-2">
-            <span className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-gray-400" />
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
+      <List items={highlights} ulClassName="space-y-2 text-sm" liClassName="gap-2"/>
 
       <div className="mt-5 flex flex-wrap gap-2">
         {stack.map((tech) => (
-          <span
-            key={tech}
-            className="rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-700"
-          >
-            {tech}
-          </span>
+          <Chip key={tech} name={tech} className="text-xs font-medium"/>
         ))}
       </div>
     </article>

@@ -18,9 +18,9 @@ export function CallToAction ({
   description = "Feel free to reach out or download my CV.",
 } : CallToActionProps) {
   return (
-    <section className="mx-auto max-w-5xl px-4 py-16 text-center">
+    <section className="py-16 text-center">
       <h2 className="text-2xl font-semibold">{title}</h2>
-      <p className="mt-4 text-base text-gray-600">{description}</p>
+      <p className="mt-4 text-base text-secondary">{description}</p>
 
       <div className="mt-8 flex justify-center gap-4">
         <Button asChild>

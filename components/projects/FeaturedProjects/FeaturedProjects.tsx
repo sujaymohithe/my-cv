@@ -6,8 +6,8 @@ import { ProjectCard } from "../ProjectCard";
  */
 export function FeaturedProjects() {
   return (
-    <section className="mx-auto max-w-5xl px-4 py-12">
-      <h2 className="mb-8 text-sm font-semibold uppercase tracking-wider text-gray-500">
+    <section className="py-12">
+      <h2 className="mb-8 text-sm font-semibold uppercase tracking-wider text-subtle-gray">
         Featured Projects
       </h2>
 

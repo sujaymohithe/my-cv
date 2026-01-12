@@ -1,3 +1,5 @@
+import { List } from "@/components/ui";
+
 interface HowIWorkProps {
   principles: string[];
 }
@@ -10,21 +12,17 @@ interface HowIWorkProps {
  */
 export function HowIWork({ principles }: HowIWorkProps) {
   return (
-    <section className="mx-auto max-w-5xl px-4 py-12">
-      <h2 className="mb-8 text-sm font-semibold uppercase tracking-wider text-gray-500">
+    <section className="py-12">
+      <h2 className="mb-8 text-sm font-semibold uppercase tracking-wider text-subtle-gray">
         How I Work
       </h2>
 
-      <ul className="grid gap-6 sm:grid-cols-2">
-        {principles.map((item, index) => (
-          <li
-            key={index}
-            className="rounded-lg border p-5 text-base leading-relaxed text-gray-700"
-          >
-            {item}
-          </li>
-        ))}
-      </ul>
+      <List
+        ulClassName="grid gap-6 sm:grid-cols-2"
+        liClassName="rounded-lg border p-5"
+        items={principles}
+        hideBullet
+      />
     </section>
   );
 }
