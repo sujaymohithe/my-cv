@@ -1,5 +1,4 @@
 export { ProfileMain } from "./ProfileMain";
-export type { ProfileProps } from "./ProfileMain";
 export { ProfessionalSummary } from "./ProfessionalSummary";
 export { TechStack } from "./TechStack";
 export { HowIWork } from "./HowIWork";

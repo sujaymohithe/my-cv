@@ -1,19 +1,12 @@
 import {
   ProfessionalSummary,
   ProfileMain,
-  ProfileProps,
   TechStack,
   HowIWork,
   CallToAction,
 } from "@/components/profile";
 import { FeaturedProjects } from "@/components/projects";
-
-const profileData: ProfileProps = {
-  name: "Sujay Mohithe",
-  designation: "Frontend Developer",
-  description:
-    "I build scalable web applications and dashboards with React, Next.js, and modern frontend tooling",
-};
+import { profile } from "@/data";
 
 /**
  * The Home component renders the main profile section
@@ -21,49 +14,25 @@ const profileData: ProfileProps = {
  * @returns The JSX element representing the Home component.
  */
 export default function Home() {
+  const { mainInfo, professionalSummary, techStack, howIWork } = profile;
   return (
-    <div className="mx-auto max-w-5xl px-4">
-      <ProfileMain
-        name={profileData.name}
-        designation={profileData.designation}
-        description={profileData.description}
-      />
-      <ProfessionalSummary
-        highlights={[
-          "7+ years of experience building modern web applications",
-          "Strong focus on frontend architecture and scalable UI patterns",
-          "Experienced with React, Next.js, and TypeScript",
-          "Built dashboards and data-driven user interfaces",
-        ]}
-      />
-      <TechStack
-        stacks={[
-          {
-            title: "Frontend",
-            items: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
-          },
-          {
-            title: "State & Data",
-            items: ["TanStack Query", "REST APIs", "Zod"],
-          },
-          {
-            title: "Tooling",
-            items: ["Git", "Vite", "ESLint", "CI/CD"],
-          },
-        ]}
-      />
+    <div className="mx-auto max-w-5xl space-y-16 px-4">
+      {/* Main Profile Section */}
+      <ProfileMain {...mainInfo} />
 
+      {/* Professional Summary Section */}
+      <ProfessionalSummary highlights={professionalSummary.highlights} />
+
+      {/* Tech Stack Section */}
+      <TechStack stacks={techStack.stacks} />
+
+      {/* Featured Projects Section */}
       <FeaturedProjects />
 
-      <HowIWork
-        principles={[
-          "I focus on clean, maintainable component architecture.",
-          "I design UIs with performance and accessibility in mind.",
-          "I prefer simple, explicit solutions over clever abstractions.",
-          "I collaborate closely with backend and product teams.",
-        ]}
-      />
+      {/* How I Work Section */}
+      <HowIWork principles={howIWork.principles} />
 
+      {/* Call to Action Section */}
       <CallToAction />
     </div>
   );

@@ -20,9 +20,9 @@ export function OverviewRow({
   className,
 }: OverviewRowProps) {
   return (
-    <section className={cn("space-y-3", className)}>
+    <section className={cn("space-y-2", className)}>
       <h3 className="text-sm font-semibold uppercase tracking-wide text-subtle-gray">
-        {title}
+        {title}:
       </h3>
       {children}
     </section>

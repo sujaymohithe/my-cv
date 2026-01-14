@@ -12,17 +12,19 @@ interface HowIWorkProps {
  */
 export function HowIWork({ principles }: HowIWorkProps) {
   return (
-    <section className="py-12">
-      <h2 className="mb-8 text-sm font-semibold uppercase tracking-wider text-subtle-gray">
-        How I Work
-      </h2>
+    <section>
+      <div>
+        <h2 className="mb-8 text-sm font-semibold uppercase tracking-wider text-subtle-gray">
+          How I Work
+        </h2>
 
-      <List
-        ulClassName="grid gap-6 sm:grid-cols-2"
-        liClassName="rounded-lg border p-5"
-        items={principles}
-        hideBullet
-      />
+        <List
+          ulClassName="grid gap-6 sm:grid-cols-2 space-y-0"
+          liClassName="rounded-lg border p-5"
+          items={principles}
+          hideBullet
+        />
+      </div>
     </section>
   );
 }

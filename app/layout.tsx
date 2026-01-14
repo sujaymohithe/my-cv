@@ -38,7 +38,7 @@ export default function RootLayout({
       >
         <main className="flex min-h-screen flex-col pb-10">
           <NavigationBar />
-          <div className="container flex-1 pt-16">{children}</div>
+          <div className="container mt-16 flex-1 py-16">{children}</div>
           <Footer />
         </main>
       </body>
