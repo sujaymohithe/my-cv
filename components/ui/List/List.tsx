@@ -24,7 +24,7 @@ export function List({
   hideBullet = false,
 }: ListProps) {
   return (
-    <ul className={cn("text-base", ulClassName)}>
+    <ul className={cn("space-y-4 text-base", ulClassName)}>
       {items.map((item, index) => (
         <li
           key={index}

@@ -16,17 +16,19 @@ export interface TechStackProps {
  */
 export function TechStack({ stacks }: TechStackProps) {
   return (
-    <section className="py-12">
-      <h2 className="mb-8 text-sm font-semibold uppercase tracking-wider text-subtle-gray">
-        Tech Stack
-      </h2>
+    <section>
+      <div>
+        <h3 className="mb-8 text-sm font-semibold uppercase tracking-wider text-subtle-gray">
+          Tech Stack
+        </h3>
 
-      <div className="space-y-8">
-        {stacks.map((stack) => (
-          <OverviewRow key={stack.title} title={stack.title}>
-            <TechStackItem items={stack.items} />
-          </OverviewRow>
-        ))}
+        <div className="space-y-8">
+          {stacks.map((stack) => (
+            <OverviewRow key={stack.title} title={stack.title}>
+              <TechStackItem items={stack.items} />
+            </OverviewRow>
+          ))}
+        </div>
       </div>
     </section>
   );

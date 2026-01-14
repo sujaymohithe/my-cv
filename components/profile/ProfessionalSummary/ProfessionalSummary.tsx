@@ -17,12 +17,14 @@ export function ProfessionalSummary({
   highlights,
 }: ProfessionalSummaryProps) {
   return (
-    <section className="py-12">
-      <h3 className="mb-6 text-sm font-semibold uppercase tracking-wider text-subtle-gray">
-        {title}
-      </h3>
+    <section>
+      <div>
+        <h3 className="mb-6 text-sm font-semibold uppercase tracking-wider text-subtle-gray">
+          {title}
+        </h3>
 
-      <List items={highlights} ulClassName="space-y-4"/>
+        <List items={highlights} />
+      </div>
     </section>
   );
 }

@@ -12,12 +12,14 @@ interface TimelineProps {
  */
 export function Timeline({ children }: TimelineProps) {
   return (
-    <div className="relative ml-4 border-l-2 border-light-gray">
-      {React.Children.map(children, (child, index) => (
-        <div key={index} className="relative mb-8">
-          {child}
-        </div>
-      ))}
-    </div>
+    <section>
+      <div className="relative ml-4 border-l-2 border-light-gray">
+        {React.Children.map(children, (child, index) => (
+          <div key={index} className="relative mb-8">
+            {child}
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
