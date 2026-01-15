@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Button } from "@/components/ui";
-import Link from "next/link";
+import { Button, SmartLink } from "@/components/ui";
+import { APP_NAME, CV_NAME } from "@/constants";
 
 export interface ProfileProps {
   name: string;
@@ -23,7 +23,7 @@ export function ProfileMain({ name, designation, description }: ProfileProps) {
       <div className="flex flex-col-reverse items-start gap-8 md:flex-row md:items-center md:justify-between">
         <div className="flex-1 space-y-4">
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Hi, I&apos;m {name} 👋
+            Hi, I&apos;m {APP_NAME} 👋
           </h1>
 
           <h2 className="text-2xl font-semibold">{designation}</h2>
@@ -34,12 +34,12 @@ export function ProfileMain({ name, designation, description }: ProfileProps) {
 
           <div className="flex gap-4 pt-4">
             <Button asChild>
-              <a href="/cv.pdf" download>
+              <SmartLink href="./cv.pdf" download={CV_NAME}>
                 Download CV
-              </a>
+              </SmartLink>
             </Button>
             <Button asChild variant="ghost">
-              <Link href="/projects">View Projects</Link>
+              <SmartLink href="/projects">View Projects</SmartLink>
             </Button>
           </div>
         </div>
