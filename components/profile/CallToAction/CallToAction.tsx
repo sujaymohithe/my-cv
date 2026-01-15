@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui";
-import Link from "next/link";
+import { Button, SmartLink } from "@/components/ui";
+import { CV_NAME } from "@/constants";
 
 interface CallToActionProps {
   title?: string;
@@ -25,12 +25,12 @@ export function CallToAction({
 
         <div className="mt-8 flex justify-center gap-4">
           <Button asChild>
-            <Link href="/contact">Contact Me</Link>
+            <SmartLink href="/contact">Contact Me</SmartLink>
           </Button>
           <Button asChild variant="ghost">
-            <a href="/cv.pdf" download>
+            <SmartLink href="./cv.pdf" download={CV_NAME}>
               Download CV
-            </a>
+            </SmartLink>
           </Button>
         </div>
       </div>
