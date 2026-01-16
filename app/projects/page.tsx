@@ -1,6 +1,8 @@
 import { ProjectCard } from "@/components/projects/ProjectCard";
 import { Project } from "@prisma/client";
 
+export const dynamic = "force-dynamic";
+
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 /**
@@ -9,7 +11,9 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
  * @throws {Error} If the API request fails.
  */
 async function getProjects(): Promise<Project[]> {
-  const res = await fetch(`${baseUrl}/api/projects`);
+  const res = await fetch(`${baseUrl}/api/projects`, {
+    cache: "no-store",
+  });
   if (!res.ok) {
     throw new Error("Failed to fetch projects");
   }
@@ -29,7 +33,7 @@ export default async function Projects() {
   const projects = await getProjects();
   const featuredProjects = projects.filter((p) => p.featured);
   const otherProjects = projects.filter((p) => !p.featured);
-  
+
   return (
     <div className="mx-auto max-w-5xl space-y-16 px-4">
       {/* Projects Header */}
