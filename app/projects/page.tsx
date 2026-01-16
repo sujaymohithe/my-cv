@@ -1,5 +1,20 @@
 import { ProjectCard } from "@/components/projects/ProjectCard";
-import { projects } from "@/data";
+import { Project } from "@prisma/client";
+
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
+/**
+ * Fetches the list of projects from the API and returns them as a Promise.
+ * @returns - A promise that resolves to a list of projects.
+ * @throws {Error} If the API request fails.
+ */
+async function getProjects(): Promise<Project[]> {
+  const res = await fetch(`${baseUrl}/api/projects`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch projects");
+  }
+  return res.json();
+}
 
 /**
  * A component that displays a list of projects, with featured projects
@@ -10,10 +25,11 @@ import { projects } from "@/data";
  * using the ProjectCard component.
  * @returns A JSX element representing the projects section.
  */
-export default function Projects() {
+export default async function Projects() {
+  const projects = await getProjects();
   const featuredProjects = projects.filter((p) => p.featured);
   const otherProjects = projects.filter((p) => !p.featured);
-
+  
   return (
     <div className="mx-auto max-w-5xl space-y-16 px-4">
       {/* Projects Header */}
@@ -40,7 +56,7 @@ export default function Projects() {
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {otherProjects.map((p) => (
-            <ProjectCard key={p.title} {...p} variant="other"/>
+            <ProjectCard key={p.title} {...p} variant="other" />
           ))}
         </div>
       </section>
