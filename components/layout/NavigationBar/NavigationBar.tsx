@@ -1,5 +1,6 @@
 import { BASE_NAVIGATION_LINKS } from "@/constants";
 import { NavigationBarItem } from "./NavigationBarItem";
+import Link from "next/link";
 
 export interface NavigationBarLink {
   id: string;
@@ -17,7 +18,9 @@ export function NavigationBar() {
   const navLinks = BASE_NAVIGATION_LINKS;
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 flex h-16 items-center bg-dark px-6 text-dark-contrast">
-      <h1 className="mr-20 text-2xl font-bold">Sujay Mohithe</h1>
+      <Link href="/">
+        <h1 className="mr-20 text-2xl font-bold">Sujay Mohithe</h1>
+      </Link>
       <ul className="flex items-center gap-12">
         {navLinks.map((link) => {
           return (

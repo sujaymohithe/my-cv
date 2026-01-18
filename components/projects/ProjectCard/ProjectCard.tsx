@@ -28,7 +28,7 @@ export function ProjectCard({
   variant = "featured",
 }: ProjectCardProps) {
   return (
-    <article className="rounded-lg border p-6 transition hover:shadow-sm">
+    <article className="rounded-lg border p-6">
       <h2 className="text-xl font-semibold">{title}</h2>
 
       <p className="mt-3 text-base leading-relaxed text-dark-gray">

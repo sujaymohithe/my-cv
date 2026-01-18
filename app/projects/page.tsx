@@ -5,6 +5,10 @@ export const dynamic = "force-dynamic";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
+export const metadata = {
+  title: "Projects",
+};
+
 /**
  * Fetches the list of projects from the API and returns them as a Promise.
  * @returns - A promise that resolves to a list of projects.

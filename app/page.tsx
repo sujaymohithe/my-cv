@@ -15,6 +15,7 @@ import { profile } from "@/data";
  */
 export default function Home() {
   const { mainInfo, professionalSummary, techStack, howIWork } = profile;
+
   return (
     <div className="mx-auto max-w-5xl space-y-16 px-4">
       {/* Main Profile Section */}
