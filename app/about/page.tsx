@@ -1,6 +1,10 @@
 import { AboutItem } from "@/components/about";
 import { about } from "@/data";
 
+export const metadata = {
+  title: "About Me",
+};
+
 /**
  * The About component renders a section with the title "About Me"
  * and a list of sections with title, content, and list of items.

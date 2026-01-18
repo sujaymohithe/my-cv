@@ -1,6 +1,10 @@
 import { ContactCard, ContactHeader } from "@/components/contact";
 import { BASE_SOCIAL_LINKS } from "@/constants";
 
+export const metadata = {
+  title: "Contact Me",
+};
+
 /**
  * A component that displays a contact page with a header and a card with contact information.
  * It renders a ContactHeader component with a title and description.

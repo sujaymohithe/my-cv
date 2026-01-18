@@ -1,5 +1,9 @@
 import { ExperienceItem, Timeline } from "@/components/experience";
 
+export const metadata = {
+  title: "Experience",
+};
+
 /**
  * The Experience page component displays a timeline of work experience.
  * @returns A JSX element representing the experience page.

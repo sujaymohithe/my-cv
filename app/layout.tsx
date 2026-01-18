@@ -14,9 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sujay Mohithe | Senior Frontend Engineer & Tech Specialist",
+  title: {
+    default: "Sujay Mohithe | Senior Frontend Engineer & Tech Specialist",
+    template: "Sujay Mohithe | %s",
+  },
   description:
-    "Explore the professional CV of Sujay Mohithe, a Tech Specialist with experience in React, Next.js, Angular and AWS. View my portfolio and recent projects.",
+    "Explore my CV, a Tech Specialist with experience in React, Next.js, Angular and AWS. View my portfolio and recent projects.",
 };
 
 /**
