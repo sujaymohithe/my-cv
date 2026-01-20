@@ -11,6 +11,10 @@ import { FeaturedProjects } from "@/components/projects";
 import { getProjects } from "@/lib";
 import { Profile, TechCategory } from "@/schemas";
 
+// If data is fetched directly from a database or another external service (not via an internal API route like here),
+// Next.js can pre-render the page at build time or use ISR.
+// However, since this page fetches data from an internal API route, pre-rendering will fail during the build.
+// Therefore, we disable static pre-rendering for this page.
 export const dynamic = "force-dynamic";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -61,11 +65,11 @@ function mapProfileToProps(profile: Profile): ProfileMainProps {
 function mapTechCategoriesToProps(
   categorizedTechStacks: TechCategory[],
 ): TechCategoryProps[] {
-  return [...categorizedTechStacks]
+  return categorizedTechStacks
     .sort((a, b) => a.order - b.order)
     .map((categorizedTechStack) => ({
       title: categorizedTechStack.name,
-      techStacks: [...categorizedTechStack.items]
+      techStacks: categorizedTechStack.items
         .sort((a, b) => a.order - b.order)
         .map((item) => item.name),
     }));

@@ -10,8 +10,9 @@ export const runtime = "nodejs"; // Important for Prisma
  * @param _req - The request object
  * @param context - The context object
  * @param context.params - The request params
- * @returns - The API response
- * @throws {Error} - If there is an error while fetching the profile
+ * @returns A Promise that resolves to a NextResponse object
+ * - 200: A JSON object of validated profile information
+ * - 500: An error response if the profile information cannot be fetched
  */
 export async function GET(
   _req: Request,

@@ -7,8 +7,9 @@ export const runtime = "nodejs"; // Important for Prisma
 /**
  * GET /api/projects
  * Retrieves a list of all projects in descending order of creation date.
- * @returns A Promise that resolves to a NextResponse object containing the list of projects.
- * @throws {Error} If there is an error fetching the projects.
+ * @returns A Promise that resolves to a NextResponse object
+ * - 200: A JSON array of validated projects
+ * - 500: An error response if the projects cannot be fetchedd
  */
 export async function GET() {
   try {

@@ -1,12 +1,13 @@
-import { APP_NAME, BASE_SOCIAL_LINKS } from "@/constants";
+import { APP_NAME } from "@/constants";
+import { getContacts } from "@/lib/api/contact";
 import Link from "next/link";
 
 /**
  * Footer component for the application
  * @returns The JSX element representing the Footer component
  */
-export function Footer() {
-  const footerLinks = BASE_SOCIAL_LINKS.filter((link) => link.external);
+export async function Footer() {
+  const footerLinks = await getContacts();
 
   return (
     <footer className="fixed bottom-0 left-0 right-0 z-50 h-10 border-t border-stroke bg-light px-6">
@@ -19,12 +20,12 @@ export function Footer() {
           {footerLinks.map((link, index) => (
             <Link
               key={index}
-              href={link.href}
+              href={link.value}
               target="_blank"
               rel="noopener noreferrer"
               className="text-secondary hover:text-contrast"
             >
-              {link.title}
+              {link.type}
             </Link>
           ))}
         </div>
