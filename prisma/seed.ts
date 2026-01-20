@@ -119,6 +119,26 @@ async function main() {
     ],
   });
 
+  await prisma.experience.create({
+    data: {
+      company: "Company Name",
+      role: "Role",
+      startYear: 2010,
+      endYear: 2013,
+      profileId: profile.id,
+      order: 1,
+      stacks: ["ASP.NET 3.5", "MVC 3.0"],
+      highlights: {
+        create: [
+          {
+            text: "Highlight 1",
+            order: 1,
+          },
+        ],
+      },
+    },
+  });
+
   console.log("Seeding complete ✅");
 }
 

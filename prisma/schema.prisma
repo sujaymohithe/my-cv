@@ -39,6 +39,7 @@ model Profile {
   aboutSections          Json
   contacts               ContactMethod[]
   techStacks             TechCategory[]
+  experiences            Experience[]
   createdAt              DateTime        @default(now())
   updatedAt              DateTime        @updatedAt
 }
@@ -76,4 +77,31 @@ model Project {
   updatedAt   DateTime @updatedAt
 
   @@index([featured])
+}
+
+model Experience {
+  id         String                @id @default(cuid())
+  company    String
+  role       String
+  startYear  Int
+  endYear    Int?
+  isCurrent  Boolean               @default(false)
+  stacks     String[]
+  order      Int
+  profileId  String
+  profile    Profile               @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  highlights ExperienceHighlight[]
+  createdAt  DateTime              @default(now())
+  updatedAt  DateTime              @updatedAt
+
+  @@index([profileId])
+}
+
+model ExperienceHighlight {
+  id           String     @id @default(cuid())
+  text         String
+  order        Int
+  experienceId String
+  experience   Experience @relation(fields: [experienceId], references: [id], onDelete: Cascade)
+  createdAt    DateTime   @default(now())
 }

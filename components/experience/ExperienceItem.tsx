@@ -1,11 +1,11 @@
 import { List } from "../ui";
 import { TechTag } from "./TechTag";
 
-interface ExperienceItemProps {
+export interface ExperienceItemProps {
   yearRange: string;
   role: string;
   company?: string;
-  techs?: string[];
+  techStacks?: string[];
   points?: string[];
 }
 
@@ -15,7 +15,7 @@ interface ExperienceItemProps {
  * @param props.yearRange - The year range of the experience item.
  * @param props.role - The role of the experience item.
  * @param props.company - The company of the experience item.
- * @param props.techs - The tech tags of the experience item.
+ * @param props.techStacks - The techStack tags of the experience item.
  * @param props.points - The bullet points of the experience item.
  * @returns A JSX element representing the experience item.
  */
@@ -23,7 +23,7 @@ export function ExperienceItem({
   yearRange,
   role,
   company,
-  techs = [],
+  techStacks = [],
   points = [],
 }: ExperienceItemProps) {
   return (
@@ -37,8 +37,8 @@ export function ExperienceItem({
       </div>
 
       <div className="mb-2 mt-1 flex flex-wrap gap-2">
-        {techs.map((tech) => (
-          <TechTag key={tech} name={tech} />
+        {techStacks.map((techStack) => (
+          <TechTag key={techStack} name={techStack} />
         ))}
       </div>
 

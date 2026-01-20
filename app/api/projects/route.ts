@@ -16,7 +16,7 @@ export async function GET() {
       orderBy: { createdAt: "desc" },
     });
     const validated = projectSchema.array().parse(projects);
-    return NextResponse.json(validated);
+    return NextResponse.json(validated, { status: 200 });
   } catch (error) {
     console.error(error);
     return NextResponse.json(

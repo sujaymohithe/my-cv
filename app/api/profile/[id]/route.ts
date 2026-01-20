@@ -35,7 +35,7 @@ export async function GET(
     }
     const validated = profileSchema.parse(profile);
 
-    return NextResponse.json(validated);
+    return NextResponse.json(validated, { status: 200 });
   } catch (error) {
     console.error(error);
     return NextResponse.json(
