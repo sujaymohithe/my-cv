@@ -42,7 +42,7 @@ async function getExperience(): Promise<ExperienceSchema[]> {
 function mapExperiencesToProps(
   experiences: ExperienceSchema[],
 ): ExperienceItemProps[] {
-  return [...experiences].map((experience) => ({
+  return experiences.map((experience) => ({
     yearRange: `${experience.startYear}–${experience.endYear || "Present"}`,
     role: experience.role,
     company: experience.company,

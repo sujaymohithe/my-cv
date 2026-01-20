@@ -46,3 +46,5 @@ export const profileSchema = z.object({
 export type TechCategory = z.infer<typeof techCategorySchema>;
 
 export type Profile = z.infer<typeof profileSchema>;
+
+export type Contact = z.infer<typeof contactSchema>;
