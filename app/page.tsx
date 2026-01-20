@@ -8,7 +8,7 @@ import {
   ProfileMainProps,
 } from "@/components/profile";
 import { FeaturedProjects } from "@/components/projects";
-import { getProjects } from "@/lib";
+import { getProfile, getProjects } from "@/lib";
 import { Profile, TechCategory } from "@/schemas";
 
 // If data is fetched directly from a database or another external service (not via an internal API route like here),
@@ -16,27 +16,6 @@ import { Profile, TechCategory } from "@/schemas";
 // However, since this page fetches data from an internal API route, pre-rendering will fail during the build.
 // Therefore, we disable static pre-rendering for this page.
 export const dynamic = "force-dynamic";
-
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-
-/**
- * Fetches the profile data from the API and returns it as a Promise.
- * The promise resolves to a Profile object.
- * @throws {Error} If the API request fails.
- * @returns A promise that resolves to a Profile object.
- */
-async function getProfile(): Promise<Profile> {
-  if (!baseUrl) {
-    throw new Error("NEXT_PUBLIC_BASE_URL is not defined");
-  }
-  const res = await fetch(`${baseUrl}/api/profile/sujay_mohithe`, {
-    cache: "no-store",
-  });
-  if (!res.ok) {
-    throw new Error("Failed to fetch profile");
-  }
-  return res.json();
-}
 
 /**
  * Maps Profile domain data to ProfileMain UI props.

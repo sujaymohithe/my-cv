@@ -4,7 +4,7 @@ import {
   ContactHeader,
 } from "@/components/contact";
 import { DOWNLOAD_CV_CONTACT_METHOD } from "@/constants";
-import { getContacts } from "@/lib/api/contact";
+import { getContacts } from "@/lib";
 import { Contact as ContactSchema } from "@/schemas";
 
 export const metadata = {

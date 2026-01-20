@@ -1,5 +1,5 @@
 import { AboutItem } from "@/components/about";
-import { about } from "@/data";
+import { getProfile } from "@/lib";
 
 export const metadata = {
   title: "About Me",
@@ -11,14 +11,17 @@ export const metadata = {
  * It uses the AboutItem component to render each section.
  * @returns A JSX element representing the About component.
  */
-export default function About() {
+export default async function About() {
+  const profileData = await getProfile();
+  const { aboutSections } = profileData;
+
   return (
     <div className="mx-auto max-w-5xl px-4">
       <h1 className="mb-8 text-3xl font-bold sm:text-4xl">About Me</h1>
 
       <div className="space-y-8">
-        {about.sections.map((section, index) => (
-          <AboutItem key={index} {...section} />
+        {aboutSections.map((section) => (
+          <AboutItem key={section.title} {...section} />
         ))}
       </div>
     </div>

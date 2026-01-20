@@ -1,5 +1,5 @@
 import { APP_NAME } from "@/constants";
-import { getContacts } from "@/lib/api/contact";
+import { getContacts } from "@/lib";
 import Link from "next/link";
 
 /**
