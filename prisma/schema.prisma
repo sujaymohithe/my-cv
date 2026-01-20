@@ -1,11 +1,8 @@
-// This is your Prisma schema file,
+// This is Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
-  provider = "prisma-client-js"
+  provider   = "prisma-client-js"
   engineType = "binary"
 }
 
@@ -13,14 +10,67 @@ datasource db {
   provider = "postgresql"
 }
 
+enum ContactType {
+  EMAIL
+  GITHUB
+  LINKEDIN
+  WEBSITE
+}
+
+model ContactMethod {
+  id        String      @id @default(cuid())
+  type      ContactType
+  label     String?
+  value     String
+  order     Int         @default(0)
+  visible   Boolean     @default(true)
+  profileId String
+  profile   Profile     @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  createdAt DateTime    @default(now())
+}
+
+model Profile {
+  id                     String          @id @default("sujay_mohithe")
+  name                   String
+  designation            String
+  professionalStatements String[]
+  professionalSummaries  String[]
+  workingPrinciples      String[]
+  aboutSections          Json
+  contacts               ContactMethod[]
+  techStacks             TechCategory[]
+  createdAt              DateTime        @default(now())
+  updatedAt              DateTime        @updatedAt
+}
+
+model TechCategory {
+  id        String     @id @default(cuid())
+  name      String
+  order     Int
+  profileId String
+  profile   Profile    @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  items     TechItem[]
+
+  @@unique([profileId, name])
+  @@index([profileId, order])
+}
+
+model TechItem {
+  id         String       @id @default(cuid())
+  name       String
+  order      Int
+  categoryId String
+  category   TechCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@index([categoryId, order])
+}
+
 model Project {
   id          String   @id
   title       String
   description String
-
   highlights  String[]
-  stack       String[]
-
+  stacks      String[]
   featured    Boolean  @default(false)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt

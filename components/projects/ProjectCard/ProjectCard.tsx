@@ -1,12 +1,9 @@
 import { Chip, List } from "@/components/ui";
+import { Project } from "../types";
 
 type ProjectCardVariant = "featured" | "other";
 
-interface ProjectCardProps {
-  title: string;
-  description: string;
-  highlights: string[];
-  stack: string[];
+interface ProjectCardProps extends Project {
   variant?: ProjectCardVariant;
 }
 
@@ -16,7 +13,7 @@ interface ProjectCardProps {
  * @param props.title - The title of the project.
  * @param props.description - The description of the project.
  * @param props.highlights - The highlights of the project.
- * @param props.stack - The tech stack of the project.
+ * @param props.stacks - The tech stacks of the project.
  * @param props.variant - The variant of the project card.
  * @returns - A JSX element representing the project card.
  */
@@ -24,7 +21,7 @@ export function ProjectCard({
   title,
   description,
   highlights,
-  stack,
+  stacks,
   variant = "featured",
 }: ProjectCardProps) {
   return (
@@ -44,8 +41,8 @@ export function ProjectCard({
       )}
 
       <div className="mt-5 flex flex-wrap gap-2">
-        {stack.map((tech) => (
-          <Chip key={tech} name={tech} className="text-xs font-medium" />
+        {stacks.map((stack) => (
+          <Chip key={stack} name={stack} className="text-xs font-medium" />
         ))}
       </div>
     </article>

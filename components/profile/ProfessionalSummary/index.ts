@@ -1,1 +1,1 @@
-export * from "./ProfessionalSummary";
+export { ProfessionalSummary } from "./ProfessionalSummary";

@@ -15,7 +15,8 @@
     "next": "16.1.1",
     "pg": "^8.17.1",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "zod": "^4.3.5"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -27,6 +28,7 @@
     "@typescript-eslint/parser": "^8.52.0",
     "autoprefixer": "^10.4.23",
     "clsx": "^2.1.1",
+    "dotenv": "^17.2.3",
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
     "eslint-plugin-jsdoc": "^62.0.0",

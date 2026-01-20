@@ -1,2 +1,2 @@
-export * from "./TechStackItem";
-export * from "./TechStack";
+export type { TechCategoryProps } from "./TechCategories";
+export { TechCategories } from "./TechCategories";

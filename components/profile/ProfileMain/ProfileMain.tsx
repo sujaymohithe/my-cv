@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Button, SmartLink } from "@/components/ui";
 import { APP_NAME, CV_NAME } from "@/constants";
 
-export interface ProfileProps {
+export interface ProfileMainProps {
   name: string;
   designation: string;
   description?: string;
@@ -17,7 +17,7 @@ export interface ProfileProps {
  * @param props.description - The description of the profile.
  * @returns - The JSX element representing the profile.
  */
-export function ProfileMain({ name, designation, description }: ProfileProps) {
+export function ProfileMain({ name, designation, description }: ProfileMainProps) {
   return (
     <section>
       <div className="flex flex-col-reverse items-start gap-8 md:flex-row md:items-center md:justify-between">

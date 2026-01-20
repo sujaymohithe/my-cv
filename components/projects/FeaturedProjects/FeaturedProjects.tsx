@@ -1,12 +1,17 @@
-import { projects } from "@/data";
 import { ProjectCard } from "../ProjectCard";
+import { Project } from "../types";
+
+interface FeaturedProjectsProps {
+  featuredProjects: Project[];
+}
 
 /**
  * FeaturedProjects component renders a list of featured projects with their details.
+ * @param props - The props for the component.
+ * @param props.featuredProjects - The list of featured projects to display.
  * @returns A JSX element representing the featured projects section.
  */
-export function FeaturedProjects() {
-  const featuredProjects = projects.filter((p) => p.featured).slice(0, 2);
+export function FeaturedProjects({ featuredProjects }: FeaturedProjectsProps) {
   return (
     <section>
       <div>
@@ -16,7 +21,7 @@ export function FeaturedProjects() {
 
         <div className="grid gap-6 md:grid-cols-2">
           {featuredProjects.map((project) => (
-            <ProjectCard key={project.id} {...project} />
+            <ProjectCard key={project.title} {...project} />
           ))}
         </div>
       </div>
