@@ -1,5 +1,5 @@
-export { ProfileMain } from "./ProfileMain";
-export { ProfessionalSummary } from "./ProfessionalSummary";
-export { TechStack } from "./TechStack";
-export { HowIWork } from "./HowIWork";
-export { CallToAction } from "./CallToAction";
+export * from "./ProfileMain";
+export * from "./ProfessionalSummary";
+export * from "./TechStack";
+export * from "./HowIWork";
+export * from "./CallToAction";

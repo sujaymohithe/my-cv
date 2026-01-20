@@ -1,14 +1,39 @@
-import { PrismaClient } from "@prisma/client";
-import { PrismaPg } from "@prisma/adapter-pg";
-import { Pool } from "pg";
+import { prisma } from "@/lib/prisma";
 
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL!,
-});
+// Example Seed Data
+const techStackData = [
+  {
+    category: "Languages",
+    order: 1,
+    items: ["TypeScript", "JavaScript"],
+  },
+  {
+    category: "Frontend & UI Libraries",
+    order: 2,
+    items: ["React", "Next.js"],
+  },
+];
 
-const adapter = new PrismaPg(pool);
+const professionalSummaries = ["Summary 1", "Summary 2"];
 
-const prisma = new PrismaClient({ adapter });
+const professionalStatements = [
+  "professionalStatement 1",
+  "professionalStatement 2",
+];
+
+const workingPrinciples = ["workingPrinciple 1"];
+
+const aboutSections = [
+  {
+    title: "What I Enjoy Working On",
+    items: ["Work 1", "Work 2", "Work 3"],
+  },
+  {
+    title: "How I Approach Engineering",
+    items: ["Approach 1", "Approach 2", "Approach 3"],
+  },
+];
+
 /**
  * Seeds the database with sample project data.
  *
@@ -21,27 +46,80 @@ const prisma = new PrismaClient({ adapter });
  */
 async function main() {
   await prisma.project.upsert({
-    where: { id: "project-id" },
-    update: {},
+    where: { id: "project_id" },
     create: {
-      id: "project-id",
-      title: "Project Title",
+      id: "project_id",
+      title: "Title 1",
       description:
-        "The project description goes here. It should be a short summary of the project and its purpose.",
-      highlights: [
-        "Highlight 1",
-        "Highlight 2",
-        "Highlight 3",
-      ],
-      stack: [
-        "React",
-        "SCSS",
-        "AI / Machine Learning Models",
-      ],
+        "Desc",
+      highlights: ["Highlight 1", "Highlight 2", "Highlight 3"],
+      stacks: ["React", "SCSS", "AI / Machine Learning Models"],
       featured: false,
     },
+    update: {
+      stacks: [
+        "Next.js (Pages Router)",
+        "React",
+        "Tailwind CSS",
+      ],
+    },
   });
-  console.log("Seed completed ✅");
+
+  const profile = await prisma.profile.upsert({
+    where: { id: "profile_id" },
+    create: {
+      id: "profile_id",
+      name: "Firstname Lastname",
+      designation: "Designation",
+      professionalStatements,
+      professionalSummaries,
+      workingPrinciples,
+      aboutSections,
+      techStacks: {
+        create: techStackData.map((category) => ({
+          name: category.category,
+          order: category.order,
+          items: {
+            create: category.items.map((item, index) => ({
+              name: item,
+              order: index + 1,
+            })),
+          },
+        })),
+      },
+    },
+    update: {
+      professionalSummaries,
+      professionalStatements,
+      techStacks: {
+        deleteMany: {},
+        create: techStackData.map((category) => ({
+          name: category.category,
+          order: category.order,
+          items: {
+            create: category.items.map((item, index) => ({
+              name: item,
+              order: index + 1,
+            })),
+          },
+        })),
+      },
+    },
+  });
+
+  await prisma.contactMethod.createMany({
+    data: [
+      {
+        type: "EMAIL",
+        value: "abc@gmail.com",
+        label: "Personal",
+        profileId: profile.id,
+        order: 1,
+      },
+    ],
+  });
+
+  console.log("Seeding complete ✅");
 }
 
 main()

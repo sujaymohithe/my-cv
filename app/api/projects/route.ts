@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { projectSchema } from "@/schemas";
 
 export const runtime = "nodejs"; // Important for Prisma
 
@@ -14,9 +15,13 @@ export async function GET() {
     const projects = await prisma.project.findMany({
       orderBy: { createdAt: "desc" },
     });
-    return NextResponse.json(projects);
+    const validated = projectSchema.array().parse(projects);
+    return NextResponse.json(validated);
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ error: "Failed to fetch projects" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to fetch projects" },
+      { status: 500 },
+    );
   }
 }

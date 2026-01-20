@@ -1,6 +1,6 @@
 import { List } from "@/components/ui";
 
-export interface ProfessionalSummaryProps {
+interface ProfessionalSummaryProps {
   title?: string;
   highlights: string[];
 }
