@@ -13,7 +13,7 @@ export function TechStackItems({ items }: TechStackItemsProps) {
     <div className="flex flex-wrap gap-x-3 gap-y-2 text-base text-dark-gray">
       {items.map((item) => (
         <span key={item} className="whitespace-nowrap">
-          {item}
+          <span className="mr-1">▸</span>{item}
         </span>
       ))}
     </div>

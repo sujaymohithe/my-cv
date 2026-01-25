@@ -3,6 +3,7 @@ import { NavigationBarLink } from "@/components/layout/NavigationBar";
 
 export const APP_NAME = "Sujay Mohithe";
 export const CV_NAME = "SujayMohithe_CV.pdf";
+export const PROJECT_NAME = "my-cv";
 
 export const BASE_NAVIGATION_LINKS: NavigationBarLink[] = [
   {
