@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button, SmartLink } from "@/components/ui";
 import { APP_NAME, CV_NAME } from "@/constants";
+import { cn } from "@/lib";
 
 export interface ProfileMainProps {
   name: string;
@@ -17,12 +18,23 @@ export interface ProfileMainProps {
  * @param props.description - The description of the profile.
  * @returns - The JSX element representing the profile.
  */
-export function ProfileMain({ name, designation, description }: ProfileMainProps) {
+export function ProfileMain({
+  name,
+  designation,
+  description,
+}: ProfileMainProps) {
   return (
     <section>
-      <div className="flex flex-col-reverse items-start gap-8 md:flex-row md:items-center md:justify-between">
+      <div
+        className={cn(
+          "flex flex-col-reverse items-start gap-8",
+          "md:flex-row md:items-center md:justify-between",
+        )}
+      >
         <div className="flex-1 space-y-4">
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          <h1
+            className={cn("text-3xl font-bold tracking-tight", "sm:text-4xl")}
+          >
             Hi, I&apos;m {APP_NAME} 👋
           </h1>
 

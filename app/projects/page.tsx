@@ -1,5 +1,5 @@
 import { ProjectCard } from "@/components/projects";
-import { getProjects } from "@/lib";
+import { cn, getProjects } from "@/lib";
 
 export const dynamic = "force-dynamic";
 
@@ -25,7 +25,9 @@ export default async function Projects() {
     <div className="mx-auto max-w-5xl space-y-16 px-4">
       {/* Projects Header */}
       <section>
-        <h1 className="mb-8 text-3xl font-bold sm:text-4xl">Projects</h1>
+        <h1 className={cn("mb-8 text-3xl font-bold", "sm:text-4xl")}>
+          Projects
+        </h1>
         <p className="text-base leading-relaxed text-dark-gray">
           A collection of real-world systems I’ve designed and built across
           frontend platforms, real-time applications, and industrial systems.
@@ -34,7 +36,7 @@ export default async function Projects() {
 
       {/* Featured Projects */}
       <section>
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className={cn("grid gap-6", "md:grid-cols-2")}>
           {featuredProjects.map((project) => (
             <ProjectCard key={project.id} {...project} />
           ))}
@@ -45,7 +47,7 @@ export default async function Projects() {
       <section className="border-t">
         <h2 className="my-6 text-2xl font-semibold">Other Projects</h2>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className={cn("grid gap-4", "sm:grid-cols-2", "lg:grid-cols-3")}>
           {otherProjects.map((project) => (
             <ProjectCard key={project.id} {...project} variant="other" />
           ))}

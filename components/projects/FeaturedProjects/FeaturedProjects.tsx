@@ -1,3 +1,4 @@
+import { cn } from "@/lib";
 import { ProjectCard } from "../ProjectCard";
 import { Project } from "../types";
 
@@ -19,7 +20,7 @@ export function FeaturedProjects({ featuredProjects }: FeaturedProjectsProps) {
           Featured Projects
         </h2>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className={cn("grid gap-6", "md:grid-cols-2")}>
           {featuredProjects.map((project) => (
             <ProjectCard key={project.title} {...project} />
           ))}

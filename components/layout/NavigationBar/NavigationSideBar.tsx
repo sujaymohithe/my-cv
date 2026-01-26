@@ -3,6 +3,7 @@ import { Button } from "@/components/ui";
 import { NavigationBarLink } from "./NavigationBar";
 import { Close } from "@/components/ui/Icons";
 import { NavigationBarItem } from "./NavigationBarItem";
+import { cn } from "@/lib";
 
 interface MobileSidebarProps {
   open: boolean;
@@ -28,10 +29,12 @@ export function NavigationSideBar({
   return (
     <>
       <div
-        className={`fixed right-0 top-0 z-50 h-full w-64 transform bg-dark text-dark-contrast 
-            transition-transform duration-300 md:hidden
-          ${open ? "translate-x-0" : "translate-x-full"}
-        `}
+        className={cn(
+          "fixed right-0 top-0 z-50 h-full w-64 transform bg-dark text-dark-contrast transition-transform duration-300",
+          "md:hidden",
+          { "translate-x-0": open },
+          { "translate-x-full": !open },
+        )}
       >
         <div className="flex justify-end px-6 py-4">
           <Button className="ml-auto hover:bg-dark" onClick={onClose}>

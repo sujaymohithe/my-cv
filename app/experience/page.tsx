@@ -3,6 +3,7 @@ import {
   ExperienceItemProps,
   Timeline,
 } from "@/components/experience";
+import { cn } from "@/lib";
 import { Experience as ExperienceSchema } from "@/schemas";
 
 export const metadata = {
@@ -61,7 +62,7 @@ export default async function Experience() {
 
   return (
     <div className="mx-auto max-w-5xl px-4">
-      <h1 className="mb-8 text-3xl font-bold sm:text-4xl">Experience</h1>
+      <h1 className={cn("mb-8 text-3xl font-bold", "sm:text-4xl")}>Experience</h1>
 
       {experiences.map((experience) => (
         <Timeline key={experience.company}>
