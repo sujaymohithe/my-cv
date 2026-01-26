@@ -1,3 +1,4 @@
+import { cn } from "@/lib";
 import { SmartLink } from "../ui";
 
 export interface ContactCardProps {
@@ -29,7 +30,12 @@ export function ContactCard({
 }: ContactCardProps) {
   return (
     <SmartLink href={href} isExternal={external} download={download}>
-      <div className="flex items-center justify-between gap-4 rounded-md border border-stroke px-4 py-3 text-contrast transition hover:border-stroke-hover">
+      <div
+        className={cn(
+          "flex flex-col items-center rounded-md border border-stroke px-4 py-3 text-contrast transition hover:border-stroke-hover",
+          "sm:flex-row sm:justify-between sm:gap-4",
+        )}
+      >
         <span className="font-medium">{title}</span>
         <span className="truncate text-sm text-secondary">{description}</span>
       </div>
