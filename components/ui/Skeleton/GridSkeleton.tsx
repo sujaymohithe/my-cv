@@ -1,3 +1,4 @@
+import { cn } from "@/lib";
 import { Skeleton } from "./Skeleton";
 
 /**
@@ -14,7 +15,7 @@ export function GridSkeleton() {
     <div className="mx-auto max-w-5xl space-y-16 px-4">
       <Skeleton className="h-6 w-1/3"></Skeleton>
       <Skeleton className="h-4 w-full"></Skeleton>
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className={cn("grid gap-6", "md:grid-cols-2")}>
         <div className="h-[500px] space-y-16 rounded-lg border border-light-gray p-6">
           <Skeleton className="h-6 w-1/3"></Skeleton>
           <Skeleton className="h-4 w-full"></Skeleton>

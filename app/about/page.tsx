@@ -1,5 +1,5 @@
 import { AboutItem } from "@/components/about";
-import { getProfile } from "@/lib";
+import { cn, getProfile } from "@/lib";
 
 export const metadata = {
   title: "About Me",
@@ -17,7 +17,7 @@ export default async function About() {
 
   return (
     <div className="mx-auto max-w-5xl px-4">
-      <h1 className="mb-8 text-3xl font-bold sm:text-4xl">About Me</h1>
+      <h1 className={cn("mb-8 text-3xl font-bold", "sm:text-4xl")}>About Me</h1>
 
       <div className="space-y-8">
         {aboutSections.map((section) => (

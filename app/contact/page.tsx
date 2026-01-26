@@ -4,7 +4,7 @@ import {
   ContactHeader,
 } from "@/components/contact";
 import { DOWNLOAD_CV_CONTACT_METHOD } from "@/constants";
-import { getContacts } from "@/lib";
+import { cn, getContacts } from "@/lib";
 import { Contact as ContactSchema } from "@/schemas";
 
 export const metadata = {
@@ -44,11 +44,11 @@ export default async function Contact() {
 
   return (
     <div className="mx-auto max-w-5xl px-4">
-      <div className="grid gap-8 md:grid-cols-[1fr_2px_1fr]">
+      <div className={cn("grid gap-8", "md:grid-cols-[1fr_2px_1fr]")}>
         {/* Contact Header */}
         <ContactHeader />
 
-        <div className="hidden bg-light-gray md:block" />
+        <div className={cn("hidden bg-light-gray", "md:block")} />
 
         {/* Contact Card */}
         <section className="flex flex-col gap-6">

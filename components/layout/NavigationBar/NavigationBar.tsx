@@ -6,6 +6,7 @@ import React from "react";
 import { BurgerMenu } from "@/components/ui/Icons";
 import { Button } from "@/components/ui";
 import { NavigationSideBar } from "./NavigationSideBar";
+import { cn } from "@/lib";
 
 export interface NavigationBarLink {
   id: string;
@@ -28,7 +29,7 @@ export function NavigationBar() {
         <Link href="/">
           <h1 className="mr-20 text-2xl font-bold">Sujay Mohithe</h1>
         </Link>
-        <ul className="hidden items-center gap-12 md:flex">
+        <ul className={cn("hidden items-center gap-12", "md:flex")}>
           {navLinks.map((link) => {
             return (
               <NavigationBarItem
@@ -41,7 +42,7 @@ export function NavigationBar() {
         </ul>
 
         <Button
-          className="ml-auto hover:bg-dark md:hidden"
+          className={cn("ml-auto hover:bg-dark", "md:hidden")}
           onClick={() => setSidebarOpen(true)}
           aria-label="Open menu"
         >

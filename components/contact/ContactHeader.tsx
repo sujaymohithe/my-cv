@@ -1,3 +1,5 @@
+import { cn } from "@/lib";
+
 /**
  * A component that displays a contact header with a title and a short description.
  * @returns A JSX element representing the contact header.
@@ -5,7 +7,7 @@
 export function ContactHeader() {
   return (
     <section>
-      <h1 className="mb-8 text-3xl font-bold sm:text-4xl">Contact</h1>
+      <h1 className={cn("mb-8 text-3xl font-bold", "sm:text-4xl")}>Contact</h1>
 
       <div className="space-y-16">
         <p className="text-base leading-relaxed text-dark-gray">

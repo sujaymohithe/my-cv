@@ -1,4 +1,5 @@
 import { List } from "@/components/ui";
+import { cn } from "@/lib";
 
 interface HowIWorkProps {
   principles: string[];
@@ -19,7 +20,7 @@ export function HowIWork({ principles }: HowIWorkProps) {
         </h2>
 
         <List
-          ulClassName="grid gap-6 sm:grid-cols-2 space-y-0"
+          ulClassName={cn("grid gap-6 space-y-0", "sm:grid-cols-2")}
           liClassName="rounded-lg border p-5"
           items={principles}
           hideBullet
