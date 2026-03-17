@@ -46,7 +46,7 @@ export function ProfileMain({
 
           <div className="flex gap-4 pt-4">
             <Button asChild>
-              <SmartLink href="./cv.pdf" download={CV_NAME}>
+              <SmartLink href={`./${CV_NAME}`} download={CV_NAME}>
                 Download CV
               </SmartLink>
             </Button>

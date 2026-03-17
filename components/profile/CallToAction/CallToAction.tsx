@@ -28,7 +28,7 @@ export function CallToAction({
             <SmartLink href="/contact">Contact Me</SmartLink>
           </Button>
           <Button asChild variant="ghost">
-            <SmartLink href="./cv.pdf" download={CV_NAME}>
+            <SmartLink href={`./${CV_NAME}`} download={CV_NAME}>
               Download CV
             </SmartLink>
           </Button>
