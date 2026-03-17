@@ -51,14 +51,7 @@ export function Button({
   // Otherwise render a regular button
   return (
     <button
-      className={cn(
-        "inline-flex items-center gap-2 rounded-md px-5 py-2 text-sm font-medium transition",
-        variant === "primary" &&
-          "bg-dark text-dark-contrast hover:bg-dark-hover",
-        variant === "ghost" &&
-          "border border-stroke text-contrast hover:border-stroke-hover",
-        className,
-      )}
+      className={classes}
       {...props}
     >
       {leftIcon}

@@ -37,6 +37,9 @@ export const DOWNLOAD_CV_CONTACT_METHOD: ContactCardProps = {
   id: "cv",
   title: "DOWNLOAD CV",
   description: "Get a copy of my latest resume",
-  href: "/cv.pdf",
+  href: `/${CV_NAME}`,
   download: CV_NAME,
 };
+
+
+export const SCHEMA_ERROR_IDENTIFIER = "schemaError";
